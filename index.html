@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NoteNest — Smart Notes App</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">📓</div>
+      <h1>Note<span>Nest</span></h1>
+    </div>
+    <div class="note-count-badge" id="count-badge">0 notes</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls-row">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" class="search-input" placeholder="Notes தேடு... (title or content)"/>
+    </div>
+    <select id="sort-select" class="sort-select">
+      <option value="newest">📅 Newest First</option>
+      <option value="oldest">📅 Oldest First</option>
+      <option value="az">🔤 A → Z</option>
+      <option value="pinned">📌 Pinned First</option>
+    </select>
+  </div>
+
+  <!-- New Note -->
+  <div class="new-note-card">
+    <input type="text" id="new-title" class="note-title-input" placeholder="Note title..." maxlength="80"/>
+    <textarea id="new-body" class="note-body-input" placeholder="உன் thoughts எழுது இங்க..." rows="3" maxlength="500"></textarea>
+    <div class="new-note-footer">
+      <div class="color-dots" id="color-dots">
+        <span style="font-size:0.7rem;color:var(--muted);margin-right:2px;">Color:</span>
+      </div>
+      <button class="save-btn" onclick="saveNote()">+ Save Note</button>
+    </div>
+  </div>
+
+  <!-- Pinned section -->
+  <div id="pinned-section" style="display:none">
+    <div class="section-label">📌 Pinned</div>
+    <div class="notes-grid" id="pinned-grid"></div>
+    <div style="margin-bottom:1.5rem"></div>
+  </div>
+
+  <!-- All Notes section -->
+  <div class="section-label" id="all-label">📝 All Notes</div>
+  <div class="notes-grid" id="notes-grid">
+    <div class="empty-state" id="empty-state">
+      <span class="emoji">📭</span>
+      <p>Notes இல்லை. மேலே எழுதி save பண்ணு!</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast-container" id="toast-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="index.js">
+</script>
+</body>
+</html>
